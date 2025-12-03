@@ -11,6 +11,10 @@ from control_escolar_api.views import maestros
 from control_escolar_api.views import materias
 
 urlpatterns = [
+    # 1. EL ADMIN DE DJANGO (Para ver la base de datos)
+    # Le cambiamos el nombre a 'secret-admin/' para que no estorbe
+    path('secret-admin/', admin.site.urls),
+    
     #Crear Admin
         path('admin/', users.AdminView.as_view()),
     #Admin Data
