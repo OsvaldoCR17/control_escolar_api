@@ -13,6 +13,7 @@ DEBUG = True  # en desarrollo
 
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',     # CORS debe ir antes de CommonMiddleware
@@ -38,9 +40,8 @@ MIDDLEWARE = [
 ]
 
 # Configuración de CORS: define orígenes permitidos y quita CORS_ORIGIN_ALLOW_ALL
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
-]
+# PERMITIR A TODOS (Vercel, Localhost, Tu teléfono, etc.)
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'control_escolar_api.urls'
